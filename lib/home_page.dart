@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'news_page.dart';
+import 'settings_page.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
-  static const List<Map<String, String>> berita = [
+  static const berita = [
     {
       'gambar': 'assets/images/imagekecil1.png',
       'kategori': 'TECHNOLOGY',
@@ -30,16 +31,26 @@ class HomePage extends StatelessWidget {
         child: ListView(
           padding: const EdgeInsets.all(20),
           children: [
-            const Row(
+            Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                CircleAvatar(
-                  radius: 18,
-                  backgroundColor: Colors.black,
-                  child: Icon(Icons.menu, color: Colors.white, size: 18),
+                InkWell(
+                  borderRadius: BorderRadius.circular(18),
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (_) => const SettingsPage()),
+                    );
+                  },
+                  child: const CircleAvatar(
+                    radius: 18,
+                    backgroundColor: Colors.black,
+                    child: Icon(Icons.menu, color: Colors.white, size: 18),
+                  ),
                 ),
-                Text('NewsApp', style: TextStyle(fontWeight: FontWeight.bold)),
-                SizedBox(width: 36),
+                const Text('NewsApp',
+                    style: TextStyle(fontWeight: FontWeight.bold)),
+                const SizedBox(width: 36),
               ],
             ),
             const SizedBox(height: 20),

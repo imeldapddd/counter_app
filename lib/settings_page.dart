@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'get_started_page.dart';
 
 class SettingsPage extends StatelessWidget {
   const SettingsPage({super.key});
@@ -19,15 +20,11 @@ class SettingsPage extends StatelessWidget {
                 children: [
                   _CircleIconButton(
                     icon: Icons.menu,
-                    onTap: () {
-                      // TODO: aksi tombol menu
-                    },
+                    onTap: () {},
                   ),
                   _CircleIconButton(
                     icon: Icons.search,
-                    onTap: () {
-                      // TODO: aksi tombol search
-                    },
+                    onTap: () {},
                   ),
                 ],
               ),
@@ -95,6 +92,18 @@ class SettingsPage extends StatelessWidget {
                 title: 'Share the app',
                 subtitle: 'Share on social media networks',
                 onTap: () {},
+              ),
+              _SettingsMenuItem(
+                icon: Icons.logout,
+                title: 'Logout',
+                subtitle: 'Keluar ke halaman Get Started',
+                onTap: () {
+                  Navigator.pushAndRemoveUntil(
+                    context,
+                    MaterialPageRoute(builder: (_) => const GetStartedPage()),
+                    (route) => false,
+                  );
+                },
               ),
             ],
           ),

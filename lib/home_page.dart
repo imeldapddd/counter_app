@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'news_page.dart';
-import 'settings_page.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+  final VoidCallback? onOpenSettings;
+
+  const HomePage({super.key, this.onOpenSettings});
 
   static const berita = [
     {
@@ -36,12 +37,7 @@ class HomePage extends StatelessWidget {
               children: [
                 InkWell(
                   borderRadius: BorderRadius.circular(18),
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (_) => const SettingsPage()),
-                    );
-                  },
+                  onTap: onOpenSettings,
                   child: const CircleAvatar(
                     radius: 18,
                     backgroundColor: Colors.black,
